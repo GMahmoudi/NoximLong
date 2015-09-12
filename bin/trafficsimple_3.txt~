@@ -1,0 +1,6 @@
+%4 and 11 are routers have a direct long connection
+4 11 false 250
+%8 and 6 are routers have a direct long connection
+8 6 false 250
+% 3 and 5 are normal routers.
+3 5 false 250

@@ -1,0 +1,1 @@
+./noxim -routing xy_5 -traffic table trafficsimple.txt -verbose 2 -warmup 20 -sim 500

@@ -1,0 +1,111 @@
+ /*
+ *  #######################################################
+ *  # NoximLong - the NoC with long connections Simulator #
+ *  #######################################################
+ *
+ *  NoximLong - The NoC Simulator with support for long connections between the mesh nodes.
+ *  NoximLong is developed by the University of Tishreen, Syria.
+ *  2015
+ *
+ *  NoximLong is based on Noxim - the NoC Simulator developed by the University of Catania
+ *  For the complete list of authors refer to file ../doc/AUTHORS.txt
+ *  For the license applied to these sources refer to file ../doc/LICENSE.txt
+ *
+ * This file contains the implementation of the long connections table
+ */
+
+#include "NoximLongConnectionsTable.h"
+
+NoximLongConnectionsTable::NoximLongConnectionsTable()
+{
+}
+
+bool NoximLongConnectionsTable::load(const char *fname)
+{
+  // Open file
+  ifstream fin(fname, ios::in);
+  if (!fin)
+    return false;
+
+  // Initialize variables
+  long_connections_table.clear();
+
+  // Cycle reading file
+  while (!fin.eof()) {
+    char line[512];
+    fin.getline(line, sizeof(line) - 1);
+
+    if (line[0] != '\0') {
+      if (line[0] != '%') {
+	int node_1, node_2;	// Mandatory
+
+	int params =
+	  sscanf(line, "%d %d", &node_1, &node_2);
+	if (params == 2) {
+	  // Create a long connection from the parameters read on the line
+	  NoximLongConnection longconnection;
+
+	  // Mandatory fields
+	  longconnection.node_1 = node_1;
+	  longconnection.node_2 = node_2;
+
+	  // Add this long connection to the vector of long connections
+	  long_connections_table.push_back(longconnection);
+	}
+      }
+    }
+  }
+
+  return true;
+}
+
+bool NoximLongConnectionsTable::hasLongConnection(const int id)
+{
+  for (unsigned int i = 0; i < long_connections_table.size(); i++)
+    if ( (long_connections_table[i].node_1 == id) || (long_connections_table[i].node_2 == id))
+      return true;
+
+  return false;
+}
+
+int NoximLongConnectionsTable::getIDofPairNode(const int id)
+{
+  for (unsigned int i = 0; i < long_connections_table.size(); i++)
+    if (long_connections_table[i].node_1 == id)
+    {
+	return long_connections_table[i].node_2;
+    }else if (long_connections_table[i].node_2 == id)
+    { 
+        return long_connections_table[i].node_1;
+    }
+  return -1;
+}
+
+bool NoximLongConnectionsTable::isItNodeOneOfTheLongConnection(const int id)
+{
+ for (unsigned int i = 0; i < long_connections_table.size(); i++)
+    if ( (long_connections_table[i].node_1 == id))
+      return true;
+
+  return false;
+
+}
+
+bool NoximLongConnectionsTable::isItNodeTwoOfTheLongConnection(const int id)
+{
+ for (unsigned int i = 0; i < long_connections_table.size(); i++)
+    if (long_connections_table[i].node_2 == id)
+      return true;
+
+  return false;
+}
+
+int  NoximLongConnectionsTable::getPositionInFiveDirTilesArray(const int id)
+{
+ int i = 0 ;
+ while (i<long_connections_table.size())
+ {
+   if (long_connections_table[i].node_1 == id) return 2*i; else if (long_connections_table[i].node_2 == id) return 2*i + 1; else i++;
+ }
+  return -1;
+}

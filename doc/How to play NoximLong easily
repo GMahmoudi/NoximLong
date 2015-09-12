@@ -1,0 +1,12 @@
+#To run noximLong you can use the noxim parameters, as in the following example
+
+./noximlong -dimx 6 -dimy 6 -routing xy -verbose 2 -warmup 20 -sim 200
+
+#To simulate long connections using noximLong you have to define a long connections file (see the example file longConn_Example.txt)
+#then use the parameter -longconn as following:
+
+./noximlong -dimx 6 -dimy 6 -longconn LongConn_Example.txt -routing xy_simple5 -verbose 2 -warmup 20 -sim 200
+
+#Note: it is important to specify a suitable routing algorithm that makes use of the long connections.
+#NoximLong defines two such routing algorithms: xy_naiv5 and xy_simple5
+#Other algorithms can be also implemented.

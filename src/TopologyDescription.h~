@@ -1,0 +1,19 @@
+#ifndef __TOPOLOGYDESCRIPTION_H__
+#define __TOPOLOGYDESCRIPTION_H__
+
+#include <systemc.h>
+#include "NoximMain.h"
+#include "NoximLongConnectionsTable.h"
+
+
+class TopologyDescription{
+	private:
+	     NoximLongConnectionsTable lctable;
+	public:
+	inline bool load(char filename[128]) {	return lctable.load(filename);}
+	inline int getPositionInFiveDirTilesArray(const int id){return lctable.getPositionInFiveDirTilesArray(id);}
+        inline bool hasLongConnection(const int id){ lctable.hasLongConnection(id); };
+	inline bool isItNodeOneOfTheLongConnection(const int id){ return lctable.isItNodeOneOfTheLongConnection(id);};
+	inline bool isItNodeTwoOfTheLongConnection(const int id){ return lctable.isItNodeTwoOfTheLongConnection(id);};
+};
+#endif
