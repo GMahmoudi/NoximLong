@@ -26,4 +26,5 @@ For further informations please refer to the following files contained in the "d
 - LICENSE.txt: license under which you are allowed to use the source files
 
 If you use NoximLong in your research, we would appreciate the following citation in any publications to which it has contributed:
-L. Shanata, C. Haddad, G. Mahmoudi, "NoximLong: NoC Simulator Supporting Long Connections on the Mesh", Bachelor Thesis, University of Tishreen, Syria, 2015.
+
+G. Mahmoudi, L. Shanata, C. Haddad, "NoximLong: NoC Simulator Supporting Long Connections on the Mesh", project report, University of Tishreen, Syria, 2015.
