@@ -1,6 +1,6 @@
 #######################################################
 # NoximLong - the NoC with long connections Simulator #
-#       based on Noxim - the NoC Simulator            #
+#       (based on Noxim - the NoC Simulator)          #
 #######################################################
 
 Welcome to NoximLong, the Network-on-Chip Simulator which supports long connections between mesh nodes.
@@ -17,6 +17,8 @@ NoximLong extends the capabilities of Noxim by supporting the simulation of long
 Long connections are not foreseen by Noxim, which is designed to simulate the regular mesh networks on chip.
 
 The long connections can be defined between pairs of nodes. The nodes are idintified by their IDs.
+
+Project web page:  http://gmahmoudi.github.io/NoximLong
 
 For further informations please refer to the following files contained in the "doc" directory:
 
