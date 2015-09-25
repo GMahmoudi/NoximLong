@@ -29,4 +29,4 @@ For further informations please refer to the following files contained in the "d
 
 If you use NoximLong in your research, we would appreciate the following citation in any publications to which it has contributed:
 
-G. Mahmoudi, L. Shanata, C. Haddad, "NoximLong: NoC Simulator Supporting Long Connections on the Mesh", project report, University of Tishreen, Syria, 2015.
+G. Mahmoudi, L. Shanata, C. Haddad, "NoximLong: NoC Simulator Supporting Long Connections on the 2D-Mesh", project report, University of Tishreen, Syria, 2015.
